@@ -1,0 +1,255 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2016 ismitka.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ *
+    Document   : _.scss
+    Created on : Oct 27, 2016
+    Author     : ismitka
+    Description:
+    Default stylesheet template.
+*/
+
+$gray: #e8e8e8;
+$darkerGray: #666666;
+
+.meteogram {
+	&.daily {
+        border-radius: 0em;
+        background: rgba(255,255,255,0.70);
+        border: 1px solid var(--color-content-border);
+        padding: 1rem;
+
+        .scrollable {
+    		width: 100%;
+    		overflow-x: auto;
+    	}
+    	.title {
+    		font-size: 1rem;
+    		color: $darkerGray;
+    		margin-bottom: 1rem;
+    		vertical-align: baseline;
+    		line-height: 2rem;
+    		span {
+    			font-size: 0.8rem;
+    			a {
+    				color: $darkerGray;
+    				text-decoration: underline;
+    			}
+    		}
+    	}
+    	table {
+    		border: none;
+    		width: 100%;
+    		td {
+    			color: $darkerGray;
+    			font-size: 0.8rem;
+    			line-height: 0.8rem;
+    			width: 35px;
+    			text-align: center;
+    			border: none;
+    		}
+    		tr.symbol {
+                td {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+    			img {
+    				width: 100%;
+    				max-width: 50px;
+    				height: auto;
+    			}
+    		}
+    		tr.wind {
+    			td {
+    				vertical-align: top;
+    				img {
+    					width: 50%;
+    					max-width: 25px;
+    					height: auto;
+    				}
+    			}
+    		}
+            tr.min, tr.max {
+                td {
+                    line-height: 1.5rem;
+                    &:after {
+                        content: "\00b0";
+                    }
+                }
+            }
+    		tr.temp {
+    			td {
+                    padding-bottom: 0;
+    				div.temp {
+    					position: relative;
+                        background-image: url("/wp-content/plugins/meteogram/static/img/temp-bg.png");
+    					width: 26px;
+    					margin-left: auto;
+    					margin-right: auto;
+    					.hi, .lo {
+    						font-size: 0.6rem;
+    					    height: 20px;
+    					    line-height: 20px;
+    					    position: absolute;
+    					    text-align: center;
+    					    width: 20px;
+                            display: none;
+    					}
+    					.hi {
+    						top: 0;
+    					}
+    					.lo {
+    						bottom: 0;
+    					}
+    				}
+    			}
+    		}
+    		tr.precipitation {
+    			td {
+    				vertical-align: top;
+    			}
+    		}
+    	}
+    }
+    &.at-side {
+        position: fixed;
+        top: calc(10vh + 130px);
+        left: -200px;
+        width: 248px;
+        overflow: hidden;
+        z-index: 999;
+        -webkit-transition: left 300ms ease; /* Safari */
+        transition: left 300ms ease;
+        cursor: default;
+        &.open {
+            left: 0;
+            > div .content {
+                max-height: 250px;
+            }
+        }
+        * {
+            color: white;
+        }
+        > div {
+            position: relative;
+            padding-right: 48px;
+            overflow: hidden;
+            min-height: 86px;
+            div.symbol {
+                position: absolute;
+                padding: 5px;
+                right: 0;
+                top: 0;
+                width: 48px;
+                text-align: center;
+                overflow: hidden;
+                span {
+                    display: block;
+                    text-align: center;
+                    font-size: 16px;
+                }
+                img {
+                    width: 38px;
+                    height: 38px;
+                }
+            }
+            .content {
+                padding: 0 5px;
+                margin: 10px 0;
+                text-align: center;
+                max-height: 0;
+                border-right: 1px solid white;
+                -webkit-transition: max-height 500ms ease; /* Safari */
+                transition: max-height 500ms ease;
+                h3 {
+                    margin-bottom: 0px;
+                }
+                .event {
+                    font-size: 10px;
+                    line-height: 10px;
+                    color: white;
+                    margin-bottom: 10px;
+                }
+                a {
+                    line-height: 20px;
+                    font-size: 10px;
+                    vertical-align: middle;
+                    text-decoration: none !important;
+                    color: white;
+                    white-space: nowrap;
+                    img {
+                        vertical-align: middle;
+                        line-height: 20px;
+                        display: inline-block;
+                        &.logo {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 5px;
+                        }
+                        &.emoji {
+                            margin-left: 5px !important;
+                        }
+                    }
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        text-decoration: none !important;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    &.inline {
+        div.symbol {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 0;
+            padding-right: 0;
+            span, img {
+                vertical-align: middle;
+                background: none;
+                display: inline-block;
+            }
+            img {
+                width: 26px;
+                height: 26px;
+            }
+        }
+        .link {
+            color: inherit;
+        }
+    }
+    .bg {
+        background-color: rgba(0,0,0,0.5);
+    }
+}
+
+@media (min-width: 1388px) {
+    .meteogram.at-side {
+        left: 0;
+        > div .content {
+            max-height: 250px;
+        }
+    }
+}
