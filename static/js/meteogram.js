@@ -82,7 +82,7 @@ class Meteogram {
                     } else if (timeserie.data.next_12_hours) {
                         symbol = timeserie.data.next_12_hours.summary.symbol_code;
                     }
-                    jQuery("[data-symbol]", config.wrapper).attr("src", "/wp-content/plugins/meteogram/static/svg/" + symbol + ".svg");
+                    jQuery("[data-symbol]", config.wrapper).attr("src", "/wp-content/plugins/wp-meteogram/static/svg/" + symbol + ".svg");
                     jQuery("[data-temp]", config.wrapper).html(Math.round(temperature) + " &deg;C");
                 });
                 break;
@@ -154,7 +154,7 @@ class Meteogram {
 
     loadForecast = (callback) => {
         jQuery.ajax({
-            url: "/wp-content/plugins/meteogram/proxy.php?ts=" + Date.now(),
+            url: "/wp-content/plugins/wp-meteogram/proxy.php?ts=" + Date.now(),
             data: {
                 lat: this.config.lat,
                 lon: this.config.lon
@@ -335,8 +335,8 @@ class Meteogram {
                 trMin.append(jQuery("<td/>").html(Math.round(item.temperature.min)));
             });
 
-            var rangeMin = -5;
-            var rangeMax = 35;
+            var rangeMin = -15;
+            var rangeMax = 40;
             var range = rangeMax - rangeMin;
             jQuery.each(context.data, function (index, item) {
                 var trTimeTd = jQuery("<td/>");
@@ -354,7 +354,7 @@ class Meteogram {
                 trTime.append(trTimeTd);
 
                 trSymbol
-                    .append(jQuery("<td/>").append(jQuery("<img/>").attr("src", "/wp-content/plugins/meteogram/static/svg/" + item.symbol + ".svg")));
+                    .append(jQuery("<td/>").append(jQuery("<img/>").attr("src", "/wp-content/plugins/wp-meteogram/static/svg/" + item.symbol + ".svg")));
                 var itemTMax = Math.min(rangeMax, Math.round(item.temperature.max));
                 var itemTMin = Math.max(rangeMin, Math.round(item.temperature.min));
                 var itemTRange = itemTMax - itemTMin;
@@ -410,7 +410,7 @@ class Meteogram {
 
                     var trWindTd = jQuery("<td/>");
                     var windSymbol = jQuery("<img/>").attr({
-                        src: "/wp-content/plugins/meteogram/static/img/arrow-down4.svg"
+                        src: "/wp-content/plugins/wp-meteogram/static/img/arrow-down4.svg"
                     }).addClass("windSymbol").css({
                         "-ms-transform": "rotate(" + item.wind.deg + "deg)",
                         "-webkit-transform": "rotate(" + item.wind.deg + "deg)",
