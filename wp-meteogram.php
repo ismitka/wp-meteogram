@@ -3,7 +3,7 @@
  * Plugin Name: Meteogram
  * Plugin URI: http://www.smitka.net/meteogram
  * Description: Show forecast of given place at given day
- * Version: 3.2
+ * Version: 1.1
  * Author: Ivan Smitka
  * Author URI: http://www.smitka.net
  * License: The MIT License
