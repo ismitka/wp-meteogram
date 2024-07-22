@@ -1,3 +1,4 @@
+sass scss/default.scss static/css/default.css
 (cd ../ && zip -r wp-meteogram/wp-meteogram.zip \
   wp-meteogram/proxy.php \
   wp-meteogram/wp-meteogram.php \

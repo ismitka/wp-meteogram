@@ -54,6 +54,7 @@ class Meteogram {
             var config = this.config.wrapper.data("config");
             this.config.lat = config.lat;
             this.config.lon = config.lon;
+
         }
         console.log(this.config);
         this.load();
@@ -364,9 +365,9 @@ class Meteogram {
                 var tempWrapper = jQuery("<div/>").addClass("temp").css({
                     height: itemTRange * tempMagnifier,
                     marginTop: (temperature.max - itemTMax) * tempMagnifier,
-                    marginBottom: (itemTMin - temperature.min) * tempMagnifier
+                    marginBottom: (itemTMin - temperature.min) * tempMagnifier,
                 });
-                if(context.config.style === "solid") {
+                if (context.config.style === "solid") {
                     var {r, g, b} = context.tempToColor(itemTMax, rangeMin, rangeMax);
                     tempWrapper.css({
                         backgroundColor: "rgb(" + r + "," + g + "," + b + ")",
@@ -379,6 +380,11 @@ class Meteogram {
                         backgroundSize: "100% " + backgroundHeight + "px",
                         backgroundPosition: "0 -" + backgroundOffset + "px"
                     });
+                    if (context.config.bgimg) {
+                        tempWrapper.css({
+                            backgroundImage: "url(\"" + context.config.bgimg + "\""
+                        });
+                    }
                 }
                 trTempTd.append(tempWrapper).attr("data-temp", Math.round(itemTMax));
 

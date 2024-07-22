@@ -3,7 +3,7 @@
  * Plugin Name: Meteogram
  * Plugin URI: http://www.smitka.net/meteogram
  * Description: Show forecast of given place at given day
- * Version: 1.1
+ * Version: 1.2
  * Author: Ivan Smitka
  * Author URI: http://www.smitka.net
  * License: The MIT License
@@ -99,12 +99,11 @@ class WP_Meteogram {
 
 	public static function meteogram( $args = array() ) {
 		$id                = "meteogram" . uniqid();
-		$args              = array_merge( $args, array(
-			"id" => $id
-		) );
+		$args              = array_merge( $args, compact( 'id' ) );
 		$type              = $args["type"];
 		$lat               = $args["lat"];
 		$lon               = $args["lon"];
+        $bgImg             = $args["bgimg"];
 		ob_start();
 		switch ( $type ) {
 			case "at-side" :

@@ -70,8 +70,8 @@ $darkerGray: #666666;
     		}
     		tr.symbol {
                 td {
-                    padding-left: 0;
-                    padding-right: 0;
+                    padding-left: 0.25rem;
+                    padding-right: 0.25rem;
                 }
     			img {
     				width: 100%;
@@ -102,7 +102,7 @@ $darkerGray: #666666;
                     padding-bottom: 0;
     				div.temp {
     					position: relative;
-                        background-image: url("/wp-content/plugins/wp-meteogram/static/img/temp-bg-3.png");
+                        background-image: url("/wp-content/plugins/wp-meteogram/static/img/temp-bg.png");
     					width: 26px;
     					margin-left: auto;
     					margin-right: auto;

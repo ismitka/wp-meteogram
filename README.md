@@ -18,6 +18,7 @@ Weather precipitation widget
 ### daily layout only:
 - **barHeight** - height of temperature bars (default 100px)
 - **style** - solid or gradient (default solid)
+- **bgimg** - temperature bar background (WP root relative path)
 
 ## Shortcode examples:
 
