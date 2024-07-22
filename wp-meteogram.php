@@ -1,11 +1,12 @@
 <?php
 /*
  * Plugin Name: Meteogram
- * Plugin URI: http://www.smitka.net/meteogram
+ * Plugin URI: https://www.smitka.net/wp-meteogram
+ * Update URI: https://www.smitka.net/wp-plugin/wp-meteogram
  * Description: Show forecast of given place at given day
- * Version: 1.2
+ * Version: 1.3
  * Author: Ivan Smitka
- * Author URI: http://www.smitka.net
+ * Author URI: https://www.smitka.net
  * License: The MIT License
  *
  * Copyright 2020 Web4People Ivan Smitka <ivan at stimulus dot cz>.
