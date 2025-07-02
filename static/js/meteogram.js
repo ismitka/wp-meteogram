@@ -32,10 +32,6 @@ class Meteogram {
         return ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"];
     };
 
-    static get sentryUrl() {
-        return "https://2fea5fce4b5a49f6b4c8c749361c73e0@sentry.stimulus.com.au/23";
-    };
-
     /**
      * config: {
      *   type: string,
@@ -168,12 +164,6 @@ class Meteogram {
             },
             error: function (xhr, status, error) {
                 console.log("Can't load forecast");
-                Sentry.withScope(function (scope) {
-                    scope.setLevel("error");
-                    Sentry.setExtra("status", status);
-                    Sentry.setExtra("error", error);
-                    Sentry.captureMessage("Can't load forecast");
-                });
             }
         });
     }

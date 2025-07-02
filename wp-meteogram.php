@@ -4,7 +4,7 @@
  * Plugin URI: https://www.smitka.net/wp-meteogram
  * Update URI: https://www.smitka.net/wp-plugin/wp-meteogram
  * Description: Show forecast of given place at given day
- * Version: 1.3
+ * Version: 1.4
  * Author: Ivan Smitka
  * Author URI: https://www.smitka.net
  * License: The MIT License
@@ -99,12 +99,11 @@ class WP_Meteogram {
 	}
 
 	public static function meteogram( $args = array() ) {
-		$id                = "meteogram" . uniqid();
+		$id                = "meteogram" . uniqid("", false);
 		$args              = array_merge( $args, compact( 'id' ) );
-		$type              = $args["type"];
-		$lat               = $args["lat"];
-		$lon               = $args["lon"];
-        $bgImg             = $args["bgimg"];
+		$type              = array_key_exists("type", $args) ? $args["type"] : null;
+		$lat               = array_key_exists("lat", $args) ? $args["lat"] : null;
+		$lon               = array_key_exists("lon", $args) ? $args["lon"] : null;
 		ob_start();
 		switch ( $type ) {
 			case "at-side" :
@@ -172,11 +171,8 @@ class WP_Meteogram {
 				break;
 		}
 		?>
-        <script src="https://browser.sentry-cdn.com/5.15.4/bundle.min.js" integrity="sha384-Nrg+xiw+qRl3grVrxJtWazjeZmUwoSt0FAVsbthlJ5OMpx0G08bqIq3b/v0hPjhB"
-                crossorigin="anonymous"></script>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
-                Sentry.init({dsn: 'https://2fea5fce4b5a49f6b4c8c749361c73e0@sentry.stimulus.com.au/23'});
                 meteogram(<?= json_encode( $args ) ?>);
             });
         </script>
