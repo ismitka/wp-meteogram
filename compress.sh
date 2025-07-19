@@ -1,6 +1,6 @@
 #!/bin/bash
 sass scss/default.scss static/css/default.css
-VERSION=$(git tag -l)
+VERSION=$(git tag -l | sort -r | head -1)
 echo "${VERSION}"
 sed -i -E "s/^ \* Version\: .*$/ * Version: ${VERSION}/g" wp-meteogram.php
 (cd ../ && zip -r wp-meteogram/${VERSION}.zip \
