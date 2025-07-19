@@ -4,7 +4,7 @@
  * Plugin URI: https://www.smitka.net/wp-meteogram
  * Update URI: https://www.smitka.net/wp-plugin/wp-meteogram
  * Description: Show forecast of given place at given day
- * Version: 1.3
+ * Version: 1.4
  * Author: Ivan Smitka
  * Author URI: https://www.smitka.net
  * License: The MIT License
